@@ -1,0 +1,34 @@
+fragment UserFields on User {
+  _id
+  avatarUrl
+  createdAt
+  email
+  firstName
+  fullName
+  isOnline
+  lastName
+  lastSeen
+}
+
+fragment SearchContactsFields on SearchContactsResponse {
+  _id
+  avatarUrl
+  createdAt
+  firstName
+  lastName
+  fullName
+  isOnline
+  conversationId
+}
+
+query Me {
+  me {
+    ...UserFields
+  }
+}
+
+query SearchContacts($search: String) {
+  searchContacts(search: $search) {
+    ...SearchContactsFields
+  }
+}

@@ -1,0 +1,93 @@
+fragment MessageFields on MessageResponse {
+  _id
+  message
+  isSender
+  createdAt
+  seen
+  conversationId
+  sender {
+    ...UserFields
+  }
+}
+
+query Conversations($pagination: PaginationInput!) {
+  conversations(pagination: $pagination) {
+    _id
+    createdAt
+    lastMessage {
+      ...MessageFields
+    }
+    participants {
+      ...UserFields
+    }
+    updatedAt
+  }
+}
+
+query GetMessagesByConv(
+  $pagination: PaginationInput
+  $conversationId: String!
+) {
+  getMessagesByConv(conversationId: $conversationId) {
+    _id
+    createdAt
+    messages(pagination: $pagination) {
+      ...MessageFields
+    }
+    participants {
+      ...UserFields
+    }
+    updatedAt
+  }
+}
+
+mutation sendMessage($input: SendMessageInput!) {
+  sendMessage(input: $input) {
+    ...MessageFields
+  }
+}
+
+mutation MarkConversationSeen($conversationId: String!) {
+  markConversationSeen(conversationId: $conversationId) {
+    _id
+    lastMessage {
+      ...MessageFields
+    }
+  }
+}
+
+subscription NewMessage($conversationId: ID) {
+  newMessage(conversationId: $conversationId) {
+    _id
+    conversationId
+    createdAt
+    isSender
+    message
+    seen
+    sender {
+      _id
+      avatarUrl
+      createdAt
+      email
+      firstName
+      fullName
+      isOnline
+      lastName
+      lastSeen
+    }
+  }
+}
+
+subscription ConversationUpdated {
+  conversationUpdated {
+    _id
+    createdAt
+    lastMessage {
+      ...MessageFields
+    }
+    participants {
+      ...UserFields
+    }
+    updatedAt
+  }
+}

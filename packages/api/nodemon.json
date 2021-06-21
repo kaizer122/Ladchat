@@ -1,0 +1,6 @@
+{
+  "watch": ["src/**/*.ts"],
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "DEBUG_DEPTH=3 DEBUG=*,-express:*,-body-parser:* ts-node --transpile-only src",
+  "ext": "ts,json"
+}

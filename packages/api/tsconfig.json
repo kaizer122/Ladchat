@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "rootDir": "src",
+    "outDir": "./build"
+  },
+  "files": ["src/index.ts"],
+  "exclude": ["node_modules", "build", "src/scripts/*"],
+  "include": ["./src/**/*.ts"]
+}

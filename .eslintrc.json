@@ -1,0 +1,33 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "linebreak-style": [1, "unix"],
+    "quotes": [1, "double"],
+    "semi": [1, "always"],
+    "prettier/prettier": [
+      2,
+      {
+        "semi": true,
+        "singleQuote": false
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-namespace": "off",
+    "array-callback-return": 0
+  }
+}

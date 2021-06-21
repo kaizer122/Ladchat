@@ -1,0 +1,26 @@
+mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    token
+    user {
+      ...UserFields
+    }
+  }
+}
+
+mutation Register($input: RegisterInput!) {
+  register(input: $input) {
+    token
+    user {
+      ...UserFields
+    }
+  }
+}
+
+mutation authFacebook($token: String!) {
+  authFacebook(token: $token) {
+    token
+    user {
+      ...UserFields
+    }
+  }
+}
