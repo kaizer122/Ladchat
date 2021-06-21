@@ -8,7 +8,7 @@
     "start": "nodemon",
     "dev": "nodemon",
     "lint": "eslint ./src --ext .ts --fix",
-    "build": "rm -rf ./build && tsc -P tsconfig.json",
+    "build": "rm -rf ./build && tsc -P ./tsconfig.json",
     "fillDb": "NODE_ENV=dev ts-node -r dotenv/config ./src/scripts/fillDb.ts"
   },
   "keywords": [],
