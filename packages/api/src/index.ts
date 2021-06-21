@@ -1,4 +1,5 @@
 import "reflect-metadata";
-import createExpressServer from "./loaders";
 import "./loaders/env";
+import createExpressServer from "./loaders";
+
 createExpressServer();
